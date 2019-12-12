@@ -60,8 +60,8 @@ for i in range(len(bp['boxes'])):
     for j in range(5):
         boxX.append(box.get_xdata()[j])
         boxY.append(box.get_ydata()[j])
-        boxCoords = zip(boxX,boxY)
-        boxPolygon = Polygon(boxCoords, facecolor = colors[i % len(colors)], linewidth=0)
+        boxCoords = np.array([boxX,boxY])
+        boxPolygon = plt.Polygon(boxCoords.T, fc = colors[i % len(colors)], lw=0)
         ax.add_patch(boxPolygon)
 
 for i in range(0, len(bp['boxes'])):
